@@ -1,19 +1,20 @@
 
-import java.util.List;
-
 public class FibonacciEven {
 
-    public static List<Integer> generateOnlyEvenFibonacciNumbersSum(int limitFromUser){
+    public static int generateOnlyEvenFibonacciNumbersSum(int limit){
         int sum = 0;
-        long limit = limitFromUser;
-        for (Integer[] number = new Integer[]{0, 1}; ; number = new Integer[]{number[1], number[0] + (number[1])}) {
-            if (limit-- == 0) break;
-            Integer integer = number[0];
-            if (integer % 2 == 0) {
-                int intValue = integer;
-                sum += intValue;
+        int firstNumber = 0;
+        int secondNumber = 1;
+        int i = 1;
+        while (i <= limit){
+            if (secondNumber % 2 == 0){
+                sum = firstNumber + secondNumber;
+                firstNumber = secondNumber;
+                secondNumber = sum;
+                i++;
             }
+
         }
-        return List.of(sum);
+        return sum;
     }
 }

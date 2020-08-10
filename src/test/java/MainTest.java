@@ -1,8 +1,6 @@
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MainTest {
@@ -12,7 +10,7 @@ public class MainTest {
         //given
         int expectedHowManyNumbersShouldBeAddTogether = 33;
         //when
-        List<Integer> sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(expectedHowManyNumbersShouldBeAddTogether);
+        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(expectedHowManyNumbersShouldBeAddTogether);
         //then
         assertThat(expectedHowManyNumbersShouldBeAddTogether);
     }
@@ -23,7 +21,7 @@ public class MainTest {
         int unexpectedZero = 0;
         int userChoice = 5;
         //when
-        List<Integer> sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(userChoice);
+        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(userChoice);
         //then
         assertThat(unexpectedZero).isNotEqualTo(userChoice);
     }
@@ -32,7 +30,7 @@ public class MainTest {
         //given
         int testNumberFromUser = 20;
         //when
-        List<Integer> sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(15);
+        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(15);
         //then
         assertThat(testNumberFromUser)
                 .isNotNegative();
@@ -42,7 +40,7 @@ public class MainTest {
         //given
         int higherThanExpected = 34;
         //when
-        List<Integer> sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(38);
+        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(38);
         //then
         assertThat(32)
                 .isLessThan(higherThanExpected);
