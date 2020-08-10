@@ -1,19 +1,19 @@
 
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class FibonacciEven {
 
-
-    public static List<Integer> generateOnlyEvenFibonacciNumbersSum(int numberFromUser){
-        List<Integer> fibonacciNumbers = Collections.singletonList(Stream.iterate(new Integer[]{0, 1},
-                number -> new Integer[]{number[1], number[0] + (number[1])})
-                .limit(numberFromUser)
-                .map(numeral -> numeral[0])
-                .filter(number -> number % 2 == 0)
-                .mapToInt(Integer::intValue).sum());
-        System.out.println(fibonacciNumbers);
-        return fibonacciNumbers;
+    public static List<Integer> generateOnlyEvenFibonacciNumbersSum(int limitFromUser){
+        int sum = 0;
+        long limit = limitFromUser;
+        for (Integer[] number = new Integer[]{0, 1}; ; number = new Integer[]{number[1], number[0] + (number[1])}) {
+            if (limit-- == 0) break;
+            Integer integer = number[0];
+            if (integer % 2 == 0) {
+                int intValue = integer;
+                sum += intValue;
+            }
+        }
+        return List.of(sum);
     }
 }
