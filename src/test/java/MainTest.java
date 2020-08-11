@@ -6,43 +6,35 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MainTest {
 
     @Test
-    void shouldReturnProperSumOfFibonacciNumbers() {
+    void shouldReturnProperSumOfFibonacciEvenNumbers() {
         //given
-        int expectedHowManyNumbersShouldBeAddTogether = 33;
+        int testValue = 33;
         //when
-        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(expectedHowManyNumbersShouldBeAddTogether);
+        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(testValue);
         //then
-        assertThat(expectedHowManyNumbersShouldBeAddTogether);
+        int expectedValue = 4613732;
+        assertThat(sum).isEqualTo(expectedValue);
     }
 
     @Test
     void shouldMakeUnableToUseZero() {
         //given
         int unexpectedZero = 0;
-        int userChoice = 5;
+        int testValue = 5;
         //when
-        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(userChoice);
+        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(testValue);
         //then
-        assertThat(unexpectedZero).isNotEqualTo(userChoice);
+        assertThat(unexpectedZero).isNotEqualTo(testValue);
     }
+
     @Test
-    void shouldMakeUnableToUseNegativeNumbers(){
+    void shouldMakeUnableToUseNegativeNumbers() {
         //given
-        int testNumberFromUser = 20;
+        int testValue = 5;
         //when
-        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(15);
+        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(testValue);
         //then
-        assertThat(testNumberFromUser)
+        assertThat(testValue)
                 .isNotNegative();
-    }
-    @Test
-    void shouldPreventHigherNumbersThanThirtyThree (){
-        //given
-        int higherThanExpected = 34;
-        //when
-        int sum = FibonacciEven.generateOnlyEvenFibonacciNumbersSum(38);
-        //then
-        assertThat(32)
-                .isLessThan(higherThanExpected);
     }
 }

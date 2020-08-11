@@ -1,19 +1,19 @@
 
 public class FibonacciEven {
 
-    public static int generateOnlyEvenFibonacciNumbersSum(int limit){
+    public static int generateOnlyEvenFibonacciNumbersSum(int maxNumber) {
+        int fibonacci;
+        int currentNumber = 0;
+        int previousNumber = 1;
         int sum = 0;
-        int firstNumber = 0;
-        int secondNumber = 1;
-        int i = 1;
-        while (i <= limit){
-            if (secondNumber % 2 == 0){
-                sum = firstNumber + secondNumber;
-                firstNumber = secondNumber;
-                secondNumber = sum;
-                i++;
-            }
 
+        for (int i = 0; i < maxNumber; i++) {
+            fibonacci = currentNumber;
+            currentNumber = previousNumber;
+            previousNumber = fibonacci + currentNumber;
+
+            if (previousNumber % 2 == 0)
+                sum += previousNumber;
         }
         return sum;
     }
